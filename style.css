@@ -39,7 +39,7 @@
     --font-family-base: "Mulish", sans-serif;
     --font-family-accent: "Oswald", sans-serif;
 
-    --container-width: 1440px;
+    --container-width: 1400px;
     --padding-x: 20px;
     --padding-y: 60px;
 
@@ -54,3 +54,23 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    font-family: var(--font-family-base);
+    color: var(--color-white);
+    background-color: var(--color-black);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.container {
+    max-width: calc(var(--container-width) + var(--padding-x) * 2);
+    margin-inline: auto;
+    padding-inline: var(--padding-x);
+    padding-block: var(--padding-y);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-accent);
+    font-weight: 400;
+    text-transform: uppercase;
+}
