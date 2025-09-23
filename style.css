@@ -44,4 +44,13 @@
     --padding-y: 60px;
 
     --transition-duration: 0.2s;
+
+    --border: 1px solid var(--color-black);
+
+    --input-height: 60px;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
