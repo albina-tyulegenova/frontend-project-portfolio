@@ -29,3 +29,19 @@
     font-style: italic;
     font-display: swap;
 }
+
+:root {
+    --color-black: #222;
+    --color-white: #fff;
+    --color-red: #FF3C3C;
+    --color-grey: #989898;
+
+    --font-family-base: "Mulish", sans-serif;
+    --font-family-accent: "Oswald", sans-serif;
+
+    --container-width: 1440px;
+    --padding-x: 20px;
+    --padding-y: 60px;
+
+    --transition-duration: 0.2s;
+}
