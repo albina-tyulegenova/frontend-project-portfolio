@@ -210,114 +210,230 @@ svg * {
 }
 
 @font-face {
-    font-family: Oswald;
-    src: url(/albinatelemesova-JSFE2025Q3/portfolio/assets/fonts/Oswald-Regular.woff2) format("woff2");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: Oswald;
+  src: url(/albinatelemesova-JSFE2025Q3/portfolio/assets/fonts/Oswald-Regular.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: Oswald;
-    src: url(/albinatelemesova-JSFE2025Q3/portfolio/assets/fonts/Oswald-Light.woff2) format("woff2");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+  font-family: Oswald;
+  src: url(/albinatelemesova-JSFE2025Q3/portfolio/assets/fonts/Oswald-Light.woff2) format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: Mulish;
-    src: url(/albinatelemesova-JSFE2025Q3/portfolio/assets/fonts/Mulish-Regular.woff2) format("woff2");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: Mulish;
+  src: url(/albinatelemesova-JSFE2025Q3/portfolio/assets/fonts/Mulish-Regular.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: Mulish;
-    src: url(/albinatelemesova-JSFE2025Q3/portfolio/assets/fonts/Mulish-Italic.woff2) format("woff2");
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
+  font-family: Mulish;
+  src: url(/albinatelemesova-JSFE2025Q3/portfolio/assets/fonts/Mulish-Italic.woff2) format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
 }
 
 :root {
-    --color-black: #222;
-    --color-white: #fff;
-    --color-red: #FF3C3C;
-    --color-grey: #989898;
+  --color-black: #222;
+  --color-white: #fff;
+  --color-red: #FF3C3C;
+  --color-grey: #989898;
 
-    --font-family-base: "Mulish", sans-serif;
-    --font-family-accent: "Oswald", sans-serif;
+  --font-family-base: "Mulish", sans-serif;
+  --font-family-accent: "Oswald", sans-serif;
 
-    --container-width: 1440px;
-    --padding-x: 20px;
-    --padding-y: 60px;
+  --container-width: 1440px;
+  --padding-x: 20px;
+  --padding-y: 60px;
 
-    --transition-duration: 0.2s;
+  --transition-duration: 0.2s;
 
-    --border: 1px solid var(--color-black);
+  --border: 1px solid var(--color-black);
 
-    --input-height: 60px;
+  --input-height: 60px;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: var(--font-family-base);
-    color: var(--color-white);
-    background-color: var(--color-black);
-    font-size: 16px;
-    font-weight: 400;
+  font-family: var(--font-family-base);
+  color: var(--color-white);
+  background-color: var(--color-black);
+  font-size: 16px;
+  font-weight: 400;
 }
 
 a {
-    color: var(--color-white);
-    text-decoration: none;
+  color: var(--color-white);
+  text-decoration: none;
 }
 
 a:hover {
-    color: var(--color-red)
+  color: var(--color-red)
 }
 
 a,
 button,
 input {
-    transition-duration: var(--transition-duration)
+  transition-duration: var(--transition-duration)
 }
 
 .container {
-    max-width: calc(var(--container-width) + var(--padding-x) * 2);
-    margin-inline: auto;
-    padding-inline:  var(--padding-x);
-    padding-block: var(--padding-y);
+  max-width: calc(var(--container-width) + var(--padding-x) * 2);
+  margin-inline: auto;
+  padding-inline:  var(--padding-x);
+  padding-block: var(--padding-y);
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-family-accent);
-    font-weight: 400;
-    text-transform: uppercase;
+  font-family: var(--font-family-accent);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.open {
+  display: flex !important;
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    column-gap: 50px;
-    padding-inline: var(--padding-x)
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 50px;
+  padding-inline: var(--padding-x)
 }
 
 .header-menu-list {
-    display: flex;
-    justify-content:space-evenly;
-    column-gap: 20px;
+  display: flex;
+  justify-content:space-evenly;
+  column-gap: 20px;
 }
 
 .header-menu-link {
-    display: inline-flex;
-    height: 60px;
+  display: inline-flex;
+  height: 60px;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.burger-menu{
+  display: none;
+  position: relative;
+  z-index: 10;
+  align-items: center;
+  justify-content: flex-end;
+  width: 60px;
+  height: 60px;
+}
+
+.burger-menu span {
+  height: 2px;
+  width: 20px;
+  background-color: var(--color-black);
+  bottom: 25px;
+}
+
+.burger-menu::after, .burger-menu::before {
+  content: '';
+  position: absolute;
+  background-color: var(--color-white);
+  transition: all 0.3s ease 0s;
+}
+
+.burger-menu::after{
+  top: 25px;
+  height: 2px;
+  width: 12px;
+}
+
+.burger-menu::before {
+  bottom: 25px;
+  height: 2px;
+  width: 20px;
+}
+
+.burger-menu.active span {
+  transform: scale(0);
+}
+
+.burger-menu.active::after {
+  bottom: 44%;
+  width: 20px;
+  transform: rotate(45deg) translate(0, 50%);
+}
+
+.burger-menu.active::before {
+  top: 44%;
+  transform: rotate(-45deg) translate(0, -50%);
+}
+
+@media(max-width: 768px) {
+  .burger-menu {
+    display: flex;
+  }
+
+  .header-menu {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    overflow-y: auto;
+    background-color: var(--color-black);
+    animation: burgerAnimation 0.4s;
+  }
+
+  .header-menu-list {
+    flex-direction: column;
     align-items: center;
-    text-transform: uppercase;
+    padding-top: 220px;
+  }
+}
+
+@media(max-width: 380px) {
+  .burger-menu {
+    display: flex;
+  }
+
+  .header-menu {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    overflow-y: auto;
+    background-color: var(--color-black);
+    animation: burgerAnimation 0.4s;
+  }
+
+  .header-menu-list {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 220px;
+  }
+}
+
+@keyframes burgerAnimation {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }

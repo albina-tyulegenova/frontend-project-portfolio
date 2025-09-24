@@ -31,6 +31,15 @@
                 </li>
             </ul>
         </nav>
+        <div class="burger-menu">
+            <span></span>
+        </div>
     </header>
+    <script>
+        document.querySelector('.burger-menu').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.header-menu').classList.toggle('open');
+        })
+    </script>
 </body>
 </html>
