@@ -555,6 +555,10 @@ h1, h2, h3, h4, h5, h6 {
   gap: 40px;
 }
 
+.about-title {
+  line-height: 40px;
+}
+
 .about-image {
   width: 440px;
   aspect-ratio: 1;
@@ -626,6 +630,29 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     padding-top: 220px;
   }
+  
+  .hide-on-mobile {
+    display: none;
+  }
+
+  .about-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-item {
+    width: clamp(340px, 94.80vw, 728px);
+  }
+
+  .about-image {
+    width: clamp(340px, 94.80vw, 728px);
+  }
+
+  .about-me {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 }
 
 @media(max-width: 760px) {
@@ -696,6 +723,13 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 220px;
   }
 
+  .about-item {
+    width: 340px;
+  }
+
+  .about-image {
+    width: 340px;
+  }
 }
 
 @keyframes burgerAnimation {
