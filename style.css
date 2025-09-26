@@ -589,7 +589,11 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-
+@media(max-width: 760px) {
+  .hero-sidebar {
+    display: none;
+  }
+}
 
 @media(max-width: 380px) {
   .burger-menu {
