@@ -273,6 +273,14 @@ body {
   font-weight: 400;
 }
 
+.light-block {
+  font-family: var(--font-family-base);
+  color: var(--color-black);
+  background-color: var(--color-white);
+  font-size: 16px;
+  font-weight: 400;
+}
+
 a {
   color: var(--color-white);
   text-decoration: none;
@@ -528,6 +536,37 @@ h1, h2, h3, h4, h5, h6 {
 .introduction-text {
   line-height: 24px;
   text-align: right;
+}
+
+.about-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+  gap: 40px;
+  
+}
+
+.about-item {
+  display: flex;
+  flex-direction: column;
+  width: 440px;
+  flex-grow: 1;
+  gap: 40px;
+}
+
+.about-image {
+  width: 440px;
+  aspect-ratio: 1;
+  overflow: hidden;
+  object-fit: cover;     /* картинка заполняет блок без искажений */
+  object-position: center;
+}
+
+.about-me {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 @media(max-width: 1100px) {
