@@ -530,34 +530,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 24px;
 }
 
-
-@media(max-width: 768px) {
-  .burger-menu {
-    display: flex;
-  }
-
-  .header-menu {
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    top: 60px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    overflow-y: auto;
-    background-color: var(--color-black);
-    animation: burgerAnimation 0.4s;
-  }
-
-  .header-menu-list {
-    flex-direction: column;
-    align-items: center;
-    padding-top: 220px;
-  }
-
+@media(max-width: 1100px) {
   .hero-second-column{
     display: none;
   }
@@ -587,6 +560,36 @@ h1, h2, h3, h4, h5, h6 {
     min-height: 758px;
   }
 }
+
+@media(max-width: 768px) {
+  .burger-menu {
+    display: flex;
+  }
+
+  .header-menu {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    overflow-y: auto;
+    background-color: var(--color-black);
+    animation: burgerAnimation 0.4s;
+  }
+
+  .header-menu-list {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 220px;
+  }
+}
+
+
 
 @media(max-width: 380px) {
   .burger-menu {
