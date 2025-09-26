@@ -615,9 +615,39 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 220px;
   }
 
-  .hero-sidebar-text {
-    display: none;
-  }
+.hero-sidebar {
+  display: none;
+}
+
+.hero-body {
+  flex-direction: column;
+  gap: 20px;
+  min-height: 888px;
+}
+
+.hero-first-column{
+  min-height: 382px;
+  column-gap: 0px;
+  padding-top: 60px;
+  padding-bottom: 0px;
+}
+
+.hero-scroll {
+  display: none;
+}
+
+.hero-title {
+  font-size: 56px;
+  line-height: 64px;
+}
+
+.hero-third-column{
+  min-height: 486px;
+  min-width: 340px;
+  padding-bottom: var(--padding-y);
+  padding-top: 0px;
+}
+
 }
 
 @keyframes burgerAnimation {
