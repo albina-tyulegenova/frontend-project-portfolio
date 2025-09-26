@@ -429,7 +429,7 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: row;
   justify-content:space-between;
   align-items: center;
-  gap: 40px;
+  gap: clamp(20px, 2.78vw, 40px);
   padding-inline: var(--padding-x);
   min-height: 862px;
 }
@@ -505,8 +505,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-little-image {
-  width: 220px;
-  height: 220px;
+  width: 15.28vw;
+  aspect-ratio: 1;
   overflow: hidden;
   object-fit: cover;     /* картинка заполняет блок без искажений */
   object-position: center;
