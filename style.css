@@ -308,6 +308,21 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
+h2 {
+  font-size: 32px;
+  line-height: 40px;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+h4 {
+  font-size: 16px;
+  line-height: 24px;
+}
+
 .open {
   display: flex !important;
 }
@@ -440,7 +455,6 @@ h1, h2, h3, h4, h5, h6 {
   gap: clamp(20px, 2.78vw, 40px);
   padding-inline-start: var(--padding-x);
   min-height: 862px;
-  /*min-width: (94.44vw, 1360px)*/
 }
 
 .hero-first-column{
@@ -491,7 +505,6 @@ h1, h2, h3, h4, h5, h6 {
   padding-left: 27px;
   line-height: 24px;
 }
-
 
 .hero-title {
   font-family: var(--font-family-accent);
@@ -573,6 +586,23 @@ h1, h2, h3, h4, h5, h6 {
 .about-me {
   display: flex;
   flex-direction: column;
+  gap: 12px;
+}
+
+.price-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  gap: 40px;
+  padding-block: var(--padding-y);
+}
+
+.price-packages{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
   gap: 12px;
 }
 
