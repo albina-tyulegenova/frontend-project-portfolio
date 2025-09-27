@@ -677,6 +677,58 @@ button {
   line-height: 20px;
 }
 
+.faq-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 40px;
+  padding-block: var(--padding-y);
+}
+
+.faq-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  width: 680px;
+}
+
+.accordion-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.opened-question {
+  display: flex;
+  flex-direction: column;
+  width: 680px;
+  padding-bottom: 20px;
+  padding-top: 18px;
+  border-bottom: 1px, solid, var(--color-white);
+}
+
+.first-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 18px;
+}
+
+.accordion-item {
+  display: flex;
+  justify-content: space-between;
+  width: 680px;
+  padding-block: 18px;
+  border-bottom: 1px solid var(--color-white);
+}
+
+.accordion-item:hover {
+  color: var(--color-red);
+  transition-duration: var(--transition-duration);
+}
+
 @media(max-width: 1100px) {
 
 
