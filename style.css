@@ -601,6 +601,75 @@ button {
   gap: 12px;
 }
 
+.portfolio-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: left;
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+.slider {
+  width: 100%; 
+  overflow: hidden;
+  padding-bottom: 60px; 
+}
+
+.slides {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.slide-img-1, .slide-img-8 {
+  margin-top: 120px;
+}
+
+.slide-img-2, .slide-img-6, .slide-img-9 {
+  margin-block: 217px;
+}
+
+.slide-img-3, .slide-img-5, .slide-img-11{
+  margin-top: 120px;
+  margin-bottom: 160px;
+}
+
+.slide-img-4, .slide-img-12 {
+  margin-bottom: 120px;
+}
+
+.slide-img-7, .slide-img-10 {
+  margin-bottom: 280px;
+}
+
+.slide-img-1, .slide-img-4, .slide-img-8, .slide-img-12 {
+  flex: 0 0 auto;
+  width: 400px;
+  height: 534px;
+  overflow: hidden;
+  object-fit: cover;
+  object-position: center;
+}
+
+.slide-img-2, .slide-img-6, .slide-img-9 {
+  flex: 0 0 auto;
+  width: 220px;
+  height: 220px;
+  overflow: hidden;
+  object-fit: cover;
+  object-position: center;
+}
+
+.slide-img-3, .slide-img-5, .slide-img-7, .slide-img-10, .slide-img-11 {
+  flex: 0 0 auto;
+  width: 280px;
+  height: 374px;
+  overflow: hidden;
+  object-fit: cover;
+  object-position: center;
+}
+
 .price-container {
   display: flex;
   flex-direction: column;
