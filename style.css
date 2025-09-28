@@ -211,7 +211,7 @@ svg * {
 
 @font-face {
   font-family: "Oswald";
-  src: url("/portfolio/assets/fonts/Oswald-Regular.woff2") format("woff2");
+  src: url("./assets/fonts/Oswald-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -219,7 +219,7 @@ svg * {
 
 @font-face {
   font-family: "Oswald";
-  src: url("/portfolio/assets/fonts/Oswald-Light.woff2") format("woff2");
+  src: url("./assets/fonts/Oswald-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -227,7 +227,7 @@ svg * {
 
 @font-face {
   font-family: "Mulish";
-  src: url("/portfolio/assets/fonts/Mulish-Regular.woff2") format("woff2");
+  src: url("./assets/fonts/Mulish-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -235,7 +235,7 @@ svg * {
 
 @font-face {
   font-family: "Mulish";
-  src: url("/portfolio/assets/fonts/Mulish-Italic.woff2") format("woff2");
+  src: url("./assets/fonts/Mulish-Italic.woff2") format("woff2");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
