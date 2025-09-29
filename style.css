@@ -610,6 +610,10 @@ button {
   padding-bottom: 40px;
 }
 
+.portfolio-text{
+  width: 360px;
+}
+
 .slider {
   width: 100%; 
   overflow: hidden;
@@ -1094,6 +1098,9 @@ button:hover {
   .about-image {
     width: 340px;
   }
+  
+  .portfolio-text{
+  width: 340px;
 }
 
 @keyframes burgerAnimation {
