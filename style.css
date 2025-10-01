@@ -338,12 +338,20 @@ button {
   display: flex !important;
 }
 
+.lock {
+  overflow: hidden;
+}
+
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 50px;
   padding-inline: var(--padding-x)
+}
+
+.header-overlay {
+  display: contents;
 }
 
 .header-menu-list {
@@ -904,20 +912,28 @@ button:hover {
     display: flex;
   }
 
-  .header-menu {
-    display: none;
-    flex-direction: column;
+  .header-overlay {
     position: fixed;
+    display: flex;
+    flex-direction: column;
     height: 100%;
     width: 100%;
     top: 60px;
-    bottom: 0;
-    left: 0;
     right: 0;
-    z-index: 10;
-    overflow-y: auto;
+    z-index: 100;
+    transform: translateX(0);
+    opacity: 1;
     background-color: var(--color-black);
-    animation: burgerAnimation 0.4s;
+    transition-duration: 0.3s;
+  }
+
+  .header-overlay:not(.open) {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  .header-menu {
+    overflow-y: auto; /*скролл, если элементов меню будет больше*/
   }
 
   .header-menu-list {
