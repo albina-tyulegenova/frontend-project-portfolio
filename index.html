@@ -162,7 +162,7 @@
                         </div>
                         <div class="package-payment">
                             <p class="package-purpose">For short sessions and quick results</p>
-                            <button>Book now</button>
+                            <button class="price-booking-btm" type="submit">Book now</button>
                         </div>
                     </li>
                     <li class="price-item">
@@ -197,7 +197,7 @@
                         </div>
                         <div class="package-payment">
                             <p class="package-purpose">Perfect for couples, portraits, or lifestyle</p>
-                            <button>Book now</button>
+                            <button class="price-booking-btm" type="submit">Book now</button>
                         </div>
                     </li>
                     <li class="price-item">
@@ -235,7 +235,7 @@
                         </div>
                         <div class="package-payment">
                             <p class="package-purpose">For when you want to capture everything</p>
-                            <button>Book now</button>
+                            <button class="price-booking-btm" type="submit">Book now</button>
                         </div>
                     </li>
                     <li class="price-item">
@@ -273,10 +273,30 @@
                         </div>
                         <div class="package-payment">
                             <p class="package-purpose">Full-day or partial wedding coverage</p>
-                            <button>Book now</button>
+                            <button class="price-booking-btm" type="submit">Book now</button>
                         </div>
                     </li>
                 </ul>
+            </div>
+            <div class="popup">
+                <div class="popup-body">
+                    <div class="popup-close">
+                        <svg class="popup-close-btn" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 6L6 18" stroke="#222222" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6 6L18 18" stroke="#222222" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>                    
+                    <div class="popup-content">
+                        <h3 class="popup-title">
+                            Like my portfolio? Sign up for a shoot!
+                        </h3>
+                        <div class="popup-form">
+                            <input class="popup-input-name" type="text" placeholder="your name">
+                            <input class="popup-tel" type="tel" placeholder="+1">
+                            <button class="popup-booking-btn" type="submit">book now</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <section id="faq" class="faq">
@@ -455,7 +475,7 @@
     
 
     <script>
-        /*Бургер меню*/
+        //Бургер меню
         const burgerMenu = document.querySelector('.burger-menu');
         const menuLinks = document.querySelectorAll('.header-overlay .header-menu-link');
         const overlay = document.querySelector('.header-overlay');
@@ -474,10 +494,10 @@
             });
         });
 
-        /*FAQ*/
+        //FAQ
         const faqItems = document.querySelectorAll(".accordion-item");
         
-        /*Открытие первой панели по умолчанию*/
+        //Открытие первой панели по умолчанию
         let activeQuestionIndex = sessionStorage.getItem('faqActiveQuestionIndex');       
 
         if (activeQuestionIndex === null) {
@@ -511,7 +531,11 @@
         // Восстанавливаем состояние при загрузке
         if (activeQuestionIndex !== null) {
             openQuestion(Number(activeQuestionIndex));
-        }
+        };
+
+
+        //POPUP
+
     </script>
 </body>
 </html>

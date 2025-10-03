@@ -759,6 +759,89 @@ button {
   line-height: 20px;
 }
 
+.popup {
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+  background-color: rgba(34, 34, 34, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+  background-color: var(--color-white);
+  width: 500px;
+  height: 356px;
+}
+
+.popup-close {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  aspect-ratio: 1;
+}
+
+.popup-close-btn {
+  width: 24px;
+  aspect-ratio: 1;
+}
+
+.popup-close:hover {
+  color: var(--color-red);
+  transition-duration: var(--transition-duration);
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px;
+}
+
+.popup-title {
+  text-align: center;
+}
+
+.popup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap:8px;
+}
+
+.popup-form input {
+  padding: 18px 12px;
+  border: var(--border);
+  font-size: 16px;
+  width: 380px;
+  height: var(--input-height);
+  font-family: var(--font-family-accent);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.popup-form input:hover {
+  border-color: var(--color-red);
+}
+
+.popup-form button {
+  width: 380px;
+}
+
 .faq-container {
   display: flex;
   justify-content: space-between;
@@ -1046,6 +1129,24 @@ button:hover {
     min-width: 340px;
     padding-bottom: var(--padding-y);
     padding-top: 0px;
+  }
+
+  .popup-body {
+    width: 340px;
+    height: 384px;
+  }
+
+  .popup-content {
+    padding-inline: var(--padding-x);
+    padding-block: var(--padding-y);
+  }
+
+  .popup-form input {
+    width: 300px;
+  }
+
+  .popup-form button {
+    width: 300px;
   }
 
   .faq-container {
