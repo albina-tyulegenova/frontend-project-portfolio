@@ -162,7 +162,7 @@
                         </div>
                         <div class="package-payment">
                             <p class="package-purpose">For short sessions and quick results</p>
-                            <button class="price-booking-btm" type="submit">Book now</button>
+                            <button class="price-booking-btn" type="submit">Book now</button>
                         </div>
                     </li>
                     <li class="price-item">
@@ -197,7 +197,7 @@
                         </div>
                         <div class="package-payment">
                             <p class="package-purpose">Perfect for couples, portraits, or lifestyle</p>
-                            <button class="price-booking-btm" type="submit">Book now</button>
+                            <button class="price-booking-btn" type="submit">Book now</button>
                         </div>
                     </li>
                     <li class="price-item">
@@ -235,7 +235,7 @@
                         </div>
                         <div class="package-payment">
                             <p class="package-purpose">For when you want to capture everything</p>
-                            <button class="price-booking-btm" type="submit">Book now</button>
+                            <button class="price-booking-btn" type="submit">Book now</button>
                         </div>
                     </li>
                     <li class="price-item">
@@ -273,7 +273,7 @@
                         </div>
                         <div class="package-payment">
                             <p class="package-purpose">Full-day or partial wedding coverage</p>
-                            <button class="price-booking-btm" type="submit">Book now</button>
+                            <button class="price-booking-btn" type="submit">Book now</button>
                         </div>
                     </li>
                 </ul>
@@ -535,7 +535,28 @@
 
 
         //POPUP
+        const popup = document.querySelector('.popup');
+        const bookingButtons = document.querySelectorAll('.price-booking-btn');
+        const popupCloseButton = document.querySelector('.popup-close');
 
+        bookingButtons.forEach((bookingButton) => {
+            bookingButton.addEventListener('click', () => {
+                popup.classList.toggle('open');
+                document.documentElement.classList.toggle('lock')
+            });
+        });
+
+        popupCloseButton.addEventListener('click', () => {
+            popup.classList.remove('open');
+            document.documentElement.classList.remove('lock');
+        })
+
+        popup.addEventListener('click', (event) => {
+            if (event.target === popup) {
+                popup.classList.remove('open');
+            document.documentElement.classList.remove('lock');
+            }
+        })
     </script>
 </body>
 </html>

@@ -770,6 +770,13 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.popup.open {
+  visibility: visible;
+  opacity: 1;
 }
 
 .popup-body {
