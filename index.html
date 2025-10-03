@@ -455,11 +455,12 @@
     
 
     <script>
+        /*Бургер меню*/
         const burgerMenu = document.querySelector('.burger-menu');
         const menuLinks = document.querySelectorAll('.header-overlay .header-menu-link');
         const overlay = document.querySelector('.header-overlay');
 
-        burgerMenu.addEventListener('click', function() {
+        burgerMenu.addEventListener('click', () => {
             this.classList.toggle('active');
             overlay.classList.toggle('open');
             document.documentElement.classList.toggle('lock')
@@ -467,11 +468,50 @@
 
         
         menuLinks.forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', () => {
                 overlay.classList.remove('open');
                 document.documentElement.classList.remove('lock')
             });
         });
+
+        /*FAQ*/
+        const faqItems = document.querySelectorAll(".accordion-item");
+        
+        /*Открытие первой панели по умолчанию*/
+        let activeQuestionIndex = sessionStorage.getItem('faqActiveQuestionIndex');       
+
+        if (activeQuestionIndex === null) {
+            activeQuestionIndex = 0;
+            sessionStorage.setItem('faqActiveQuestionIndex', activeQuestionIndex)
+        };
+
+        function openQuestion(questionIndex) {
+            faqItems.forEach((questionItem, i) => {
+                if (i === questionIndex) {
+                    questionItem.classList.toggle('active');
+                } else {
+                    questionItem.classList.remove('active');
+                }
+            });
+            sessionStorage.setItem('faqActiveQuestionIndex', questionIndex)
+        }
+
+        faqItems.forEach((questionItem, i) => {
+            const question = questionItem.querySelector('.accordion-question');
+            question.addEventListener('click', () => {
+                if (questionItem.classList.contains('active')) {
+                    questionItem.classList.remove('active');
+                    sessionStorage.removeItem('faqActiveQuestionIndex');
+                } else {
+                    openQuestion(i);
+                }
+            });
+        });
+
+        // Восстанавливаем состояние при загрузке
+        if (activeQuestionIndex !== null) {
+            openQuestion(Number(activeQuestionIndex));
+        }
     </script>
 </body>
 </html>

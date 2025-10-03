@@ -820,11 +820,13 @@ button {
 }
 
 .accordion-answer{
-  display: none;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.7s ease;
 }
 
 .accordion-item.active .accordion-answer {
-  display: flex;
+  max-height: 500px;
   padding-bottom: 18px;
 }
 
