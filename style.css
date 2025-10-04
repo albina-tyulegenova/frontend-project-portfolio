@@ -631,7 +631,15 @@ button {
 .slides {
   display: flex;
   gap: 20px;
-  justify-content: center;
+  /*justify-content: center;*/
+  padding-inline: var(--padding-x);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.slides::-webkit-scrollbar {
+  display: none;
 }
 
 .slide-img-1, .slide-img-8 {

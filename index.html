@@ -557,6 +557,58 @@
             document.documentElement.classList.remove('lock');
             }
         })
+    
+        const slider = document.querySelector('.slides');
+        const screenWidth = window.innerWidth;
+        let isCursorLeft = false;
+        let isCursorRight = false;
+        const scrollSpeed = 5;
+
+        slider.scrollLeft = (slider.scrollWidth - slider.clientWidth) / 2;
+
+        const scrollSlider = () => {
+            if (isCursorLeft) slider.scrollLeft -= scrollSpeed;
+            if (isCursorRight) slider.scrollLeft += scrollSpeed;
+            requestAnimationFrame(scrollSlider)
+        };
+
+        scrollSlider();
+
+        document.addEventListener('mousemove', (event) => {
+            const mouseX = event.clientX;
+
+            if (mouseX <= 0.3 * screenWidth) {
+                isCursorLeft = true;
+                isCursorRight = false;
+            } else if (mouseX >= 0.7 * screenWidth) {
+                isCursorLeft = false;
+                isCursorRight = true;
+            } else {
+                isCursorLeft = false;
+                isCursorRight = false;
+            }
+        });
+
+        let startTouchX;
+
+        slider.addEventListener('touchstart', (event) => {
+            startTouchX = event.touches[0].clientX;
+        });
+
+        slider.addEventListener('touchmove', (event) => {
+            const posDifference = startTouchX - event.touches[0].clientX;
+            slider.scrollLeft += posDifference;
+            startTouchX = event.touches[0].clientX;
+        });
+
+
+        slider.addEventListener('scroll', () => {
+            if (slider.scrollLeft < 0) slider.scrollLeft = 0;
+            if (slider.scrollLeft > slider.scrollWidth - slider.clientWidth) {
+                slider.scrollLeft = slider.scrollWidth - slider.clientWidth;
+            }
+        });
+        
     </script>
 </body>
 </html>
