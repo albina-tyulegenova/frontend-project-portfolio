@@ -772,6 +772,7 @@ button {
   justify-content: center;
   visibility: hidden;
   opacity: 0;
+  transition: opacity var(--transition-duration), visibility var(--transition-duration);
 }
 
 .popup.open {
@@ -788,6 +789,12 @@ button {
   background-color: var(--color-white);
   width: 500px;
   height: 356px;
+  transform: scale(0);
+  transition: transform 0.4s;
+}
+
+.popup.open .popup-body {
+  transform: scale(1);
 }
 
 .popup-close {
