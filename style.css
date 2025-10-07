@@ -1099,12 +1099,20 @@ button:hover {
   width: min(94.80vw, 728px);
 }
 
-.opened-question {
-  width: min(94.80vw, 728px);
+.accordion-list{
+    margin: auto;
+  }
+
+.accordion-answer {
+  width: clamp(340px, 89.47vw, 728px);
+}
+
+.accordion-question {
+  width: clamp(340px, 89.47vw, 728px);
 }
 
 .accordion-item {
-  width: min(94.80vw, 728px);
+  width: clamp(340px, 89.47vw, 728px);
 }
 }
 
@@ -1181,18 +1189,6 @@ button:hover {
 
   .faq-text {
     width: max(89.47vw, 340px);
-  }
-
-  .opened-question {
-    width: max(89.47vw, 340px);
-  }
-
-  .accordion-item {
-    width: max(89.47vw, 340px);
-  }
-
-  .accordion-list{
-    margin: auto;
   }
 
   .booking-form input {
