@@ -489,6 +489,7 @@
         
         menuLinks.forEach(link => {
             link.addEventListener('click', () => {
+                burgerMenu.classList.remove('active');
                 overlay.classList.remove('open');
                 document.documentElement.classList.remove('lock')
             });
@@ -574,13 +575,14 @@
 
         scrollSlider();
 
-        document.addEventListener('mousemove', (event) => {
+        slider.addEventListener('mousemove', (event) => {
             const mouseX = event.clientX;
+            const screenWidth = window.innerWidth;
 
-            if (mouseX <= 0.3 * screenWidth) {
+            if (mouseX < 0.3 * screenWidth) {
                 isCursorLeft = true;
                 isCursorRight = false;
-            } else if (mouseX >= 0.7 * screenWidth) {
+            } else if (mouseX > 0.7 * screenWidth) {
                 isCursorLeft = false;
                 isCursorRight = true;
             } else {
