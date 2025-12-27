@@ -338,12 +338,20 @@ button {
   display: flex !important;
 }
 
+.lock {
+  overflow: hidden;
+}
+
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 50px;
   padding-inline: var(--padding-x)
+}
+
+.header-overlay {
+  display: contents;
 }
 
 .header-menu-list {
@@ -623,7 +631,15 @@ button {
 .slides {
   display: flex;
   gap: 20px;
-  justify-content: center;
+  /*justify-content: center;*/
+  padding-inline: var(--padding-x);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.slides::-webkit-scrollbar {
+  display: none;
 }
 
 .slide-img-1, .slide-img-8 {
@@ -751,6 +767,103 @@ button {
   line-height: 20px;
 }
 
+.popup {
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+  background-color: rgba(34, 34, 34, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity var(--transition-duration), visibility var(--transition-duration);
+}
+
+.popup.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+  background-color: var(--color-white);
+  width: 500px;
+  height: 356px;
+  transform: scale(0);
+  transition: transform 0.4s;
+}
+
+.popup.open .popup-body {
+  transform: scale(1);
+}
+
+.popup-close {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  aspect-ratio: 1;
+}
+
+.popup-close-btn {
+  width: 24px;
+  aspect-ratio: 1;
+}
+
+.popup-close:hover {
+  color: var(--color-red);
+  transition-duration: var(--transition-duration);
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px;
+}
+
+.popup-title {
+  text-align: center;
+}
+
+.popup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap:8px;
+}
+
+.popup-form input {
+  padding: 18px 12px;
+  border: var(--border);
+  font-size: 16px;
+  width: 380px;
+  height: var(--input-height);
+  font-family: var(--font-family-accent);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.popup-form input:hover {
+  border-color: var(--color-red);
+}
+
+.popup-form button {
+  width: 380px;
+}
+
 .faq-container {
   display: flex;
   justify-content: space-between;
@@ -774,35 +887,52 @@ button {
   align-items: flex-start;
 }
 
-.opened-question {
+.accordion-item {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
   width: min(47.22vw, 680px);
-  padding-bottom: 20px;
-  padding-top: 18px;
-  border-bottom: 1px, solid, var(--color-white);
+  border-bottom: 1px solid var(--color-white);
+  cursor: pointer;
+
 }
 
-.first-question {
+.accordion-question {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 18px;
-  cursor: pointer;
-}
-
-.accordion-item {
-  display: flex;
-  justify-content: space-between;
-  width: min(47.22vw, 680px);
   padding-block: 18px;
-  border-bottom: 1px solid var(--color-white);
+  width: min(47.22vw, 680px);
   cursor: pointer;
 }
 
-.accordion-item:hover {
+.accordion-question:hover {
   color: var(--color-red);
   transition-duration: var(--transition-duration);
+}
+
+.accordion-svg-minus {
+  display: none;
+}
+
+.accordion-item.active .accordion-svg-minus {
+  display: block;
+}
+
+.accordion-item.active .accordion-svg-plus {
+  display: none;
+}
+
+.accordion-answer{
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.7s ease;
+}
+
+.accordion-item.active .accordion-answer {
+  max-height: 500px;
+  padding-bottom: 18px;
 }
 
 .footer-light-container {
@@ -904,20 +1034,28 @@ button:hover {
     display: flex;
   }
 
-  .header-menu {
-    display: none;
-    flex-direction: column;
+  .header-overlay {
     position: fixed;
+    display: flex;
+    flex-direction: column;
     height: 100%;
     width: 100%;
     top: 60px;
-    bottom: 0;
-    left: 0;
     right: 0;
-    z-index: 10;
-    overflow-y: auto;
+    z-index: 100;
+    transform: translateX(0);
+    opacity: 1;
     background-color: var(--color-black);
-    animation: burgerAnimation 0.4s;
+    transition-duration: 0.3s;
+  }
+
+  .header-overlay:not(.open) {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  .header-menu {
+    overflow-y: auto; /*скролл, если элементов меню будет больше*/
   }
 
   .header-menu-list {
@@ -961,12 +1099,20 @@ button:hover {
   width: min(94.80vw, 728px);
 }
 
-.opened-question {
-  width: min(94.80vw, 728px);
+.accordion-list{
+    margin: auto;
+  }
+
+.accordion-answer {
+  width: clamp(340px, 89.47vw, 728px);
+}
+
+.accordion-question {
+  width: clamp(340px, 89.47vw, 728px);
 }
 
 .accordion-item {
-  width: min(94.80vw, 728px);
+  width: clamp(340px, 89.47vw, 728px);
 }
 }
 
@@ -1015,6 +1161,24 @@ button:hover {
     padding-top: 0px;
   }
 
+  .popup-body {
+    width: 340px;
+    height: 384px;
+  }
+
+  .popup-content {
+    padding-inline: var(--padding-x);
+    padding-block: var(--padding-y);
+  }
+
+  .popup-form input {
+    width: 300px;
+  }
+
+  .popup-form button {
+    width: 300px;
+  }
+
   .faq-container {
     flex-direction: column;  
   }
@@ -1025,18 +1189,6 @@ button:hover {
 
   .faq-text {
     width: max(89.47vw, 340px);
-  }
-
-  .opened-question {
-    width: max(89.47vw, 340px);
-  }
-
-  .accordion-item {
-    width: max(89.47vw, 340px);
-  }
-
-  .accordion-list{
-    margin: auto;
   }
 
   .booking-form input {
@@ -1065,32 +1217,6 @@ button:hover {
 }
 
 @media(max-width: 380px) {
-  .burger-menu {
-    display: flex;
-  }
-
-  .header-menu {
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    top: 60px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    overflow-y: auto;
-    background-color: var(--color-black);
-    animation: burgerAnimation 0.4s;
-  }
-
-  .header-menu-list {
-    flex-direction: column;
-    align-items: center;
-    padding-top: 220px;
-  }
-
   .about-item {
     width: 340px;
   }
